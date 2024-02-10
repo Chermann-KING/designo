@@ -11,6 +11,7 @@ export default function Home() {
 }
 
 const MainStyled = styled.main`
+  margin-top: 67px;
   height: 60vh;
   display: flex;
   align-items: center;
