@@ -45,7 +45,7 @@ export default function Header() {
             <Link href={"/our-company"}>Our company</Link>
           </li>
           <li>
-            <Link href={"/location"}>Location</Link>
+            <Link href={"/locations"}>Location</Link>
           </li>
           <li>
             <Link href={"/contact"}>Contact</Link>
