@@ -1,23 +1,21 @@
 "use client";
 
+import Hero from "@/components/layout/Hero";
 import styled from "styled-components";
 
 export default function Home() {
   return (
     <MainStyled>
-      <h1>Designo</h1>
+      <Hero />
     </MainStyled>
   );
 }
 
 const MainStyled = styled.main`
   margin-top: 67px;
-  height: 60vh;
+  height: calc(100vh - 67px);
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   justify-content: center;
-  background-color: antiquewhite;
-  h1 {
-    color: #e7816b;
-  }
+  padding: 0 20px;
 `;
