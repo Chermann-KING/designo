@@ -66,7 +66,7 @@ const Card = styled.div`
   cursor: pointer;
   overflow: hidden;
   border-radius: 15px;
-  // Ajoutez plus de styles ici pour correspondre à votre design
+
   //todo à voir
   display: flex;
   align-items: center;
