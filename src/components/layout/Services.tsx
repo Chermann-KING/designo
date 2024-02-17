@@ -52,7 +52,7 @@ export default function Services() {
 }
 
 const SectionStyled = styled.section`
-  /* width: 1112px; */
+  width: 100%;
   height: 640px;
 
   display: grid;

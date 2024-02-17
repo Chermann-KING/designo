@@ -57,6 +57,7 @@ export default function Header() {
 }
 
 const HeaderStytled = styled.header`
+  z-index: 10;
   height: 24px;
   max-width: 1111px;
   margin: 0 auto;
@@ -103,6 +104,7 @@ const HeaderStytled = styled.header`
   // masque ou affiche la nav sur mobile
   @media (max-width: 768px) {
     nav {
+      z-index: 10;
       display: none;
       position: absolute;
       top: 16%;

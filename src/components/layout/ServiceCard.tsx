@@ -36,9 +36,9 @@ const ServiceCard = ({
             <path
               d="M1 1l4 4-4 4"
               stroke="#E7816B"
-              stroke-width="2"
+              strokeWidth="2"
               fill="none"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             />
           </svg>
         </span>

@@ -14,12 +14,20 @@ export default function Home() {
 }
 
 const MainStyled = styled.main`
-  margin-top: 67px;
+  max-width: 1111px;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 160px;
   padding: 0 20px;
+
+  margin: 0 auto;
+  margin-top: 67px;
   margin-bottom: 60px;
+
+  // Styles pour les tablettes
+  @media (max-width: 768px) {
+    row-gap: 120px;
+  }
 `;

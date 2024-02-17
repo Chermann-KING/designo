@@ -26,6 +26,7 @@ const Hero = () => (
 );
 
 const SectionStyle = styled.section`
+  z-index: 0;
   position: relative;
   background-color: #e7816b;
   border-radius: 15px;
@@ -34,7 +35,7 @@ const SectionStyle = styled.section`
   overflow: hidden;
 
   height: 640px;
-  width: 1111px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -91,6 +92,7 @@ const SectionStyle = styled.section`
   @media (max-width: 768px) {
     position: relative;
     padding: 58px 0;
+    width: 100%;
     height: 843px;
 
     flex-direction: column;
@@ -119,7 +121,6 @@ const SectionStyle = styled.section`
     position: relative;
     padding: 58px 0;
     height: 843px;
-
     flex-direction: column;
     align-items: center;
     text-align: center;
