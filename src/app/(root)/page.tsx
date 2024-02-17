@@ -1,5 +1,6 @@
 "use client";
 
+import Features from "@/components/layout/Features";
 import Hero from "@/components/layout/Hero";
 import Services from "@/components/layout/Services";
 import styled from "styled-components";
@@ -9,6 +10,7 @@ export default function Home() {
     <MainStyled>
       <Hero />
       <Services />
+      <Features />
     </MainStyled>
   );
 }
