@@ -101,12 +101,20 @@ const Content = styled.div`
 
   display: flex;
   flex-direction: column;
+  text-align: center;
 
   h2 {
     text-transform: uppercase;
     color: #fff;
     font-size: 2.5rem;
     font-weight: 500;
+  }
+
+  // Styles pour les téléphones
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 1.75rem;
+    }
   }
 `;
 
