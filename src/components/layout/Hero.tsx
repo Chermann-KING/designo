@@ -1,16 +1,8 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Button from "../shared/Button";
 
 const Hero = () => {
-  const [showButton, setShowButton] = useState(false);
-
-  useEffect(() => {
-    // Imagine fetching some data here...
-    setShowButton(true); // After initial hydration
-  }, []);
-
   return (
     <SectionStyle>
       <div className="infos-text">
@@ -20,11 +12,15 @@ const Hero = () => {
           fully responsive websites, app design, and engaging brand experiences.
           Find out more about our services.
         </p>
-        {showButton && (
-          <Button href="/web-design" variant="primary">
+        {/* {showButton && (
+          <DefaultButton href="/web-design" variant="primary">
             Learn more
-          </Button>
-        )}
+          </DefaultButton>
+        )} */}
+        {/* reusable component */}
+        <Button variant="primary" href="/web-design">
+          Learn more
+        </Button>
       </div>
       <div className="image">
         <Image

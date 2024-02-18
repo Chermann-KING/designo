@@ -1,57 +1,96 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import Link from "next/link";
+// import Link from "next/link";
 
-interface ButtonProps {
+type ButtonProps = {
+  variant: "primary" | "secondary";
   children: React.ReactNode;
-  variant?: "primary" | "secondary";
-  href: string;
-  className?: string;
-}
-
-const Button: React.FC<ButtonProps> = ({
-  children,
-  variant = "primary",
-  href,
-  className,
-}) => {
-  return (
-    <Link href={href} passHref>
-      <ButtonStyled variant={variant} className={className}>
-        {children}
-      </ButtonStyled>
-    </Link>
-  );
+  onClick?: () => void;
+  href?: string;
 };
 
-// Styles basic with variant
-const buttonStyles = css<ButtonProps>`
+const ButtonStyles = styled.button<{ variant: "primary" | "secondary" }>`
   cursor: pointer;
   border: none;
-  min-width: 152px;
+  width: 152px;
+  height: 56px;
   padding: 20px;
   text-transform: uppercase;
   font-weight: 500;
-  border-radius: 8px;
-  transition: background-color 0.3s, color 0.3s;
-  display: inline-block;
   text-align: center;
+  border-radius: 8px;
+  /* display: inline-block; */
+  transition: background-color 0.2s, color 0.2s;
 
-  background-color: ${({ variant }) =>
-    variant === "secondary" ? "#ffad9b" : "#fff"};
+  ${(props) =>
+    props.variant === "primary" &&
+    css`
+      background-color: #fff;
+      color: #333136;
 
-  color: ${({ variant }) => (variant === "secondary" ? "#fff" : "#333136")};
+      &:hover {
+        background-color: #ffad9b;
+        color: #fff;
+      }
+    `}
 
-  &:hover {
-    background-color: ${({ variant }) =>
-      variant === "secondary" ? "#fff" : "#ffad9b"};
+  ${(props) =>
+    props.variant === "secondary" &&
+    css`
+      background-color: #ffad9b;
+      color: #fff;
 
-    color: ${({ variant }) => (variant === "secondary" ? "#333136" : "#fff")};
-  }
+      &:hover {
+        background-color: #fff;
+        color: #333136;
+      }
+    `}
 `;
 
-const ButtonStyled = styled.a<ButtonProps>`
-  ${buttonStyles}
-`;
+// depreciated
+// const Button: React.FC<ButtonProps> = ({
+//   variant,
+//   children,
+//   onClick,
+//   href,
+// }) => {
+//   const ButtonContent = (
+//     <ButtonStyles variant={variant} onClick={onClick}>
+//       {children}
+//     </ButtonStyles>
+//   );
+
+//   return href ? (
+//     <Link href={href} passHref legacyBehavior>
+//       <a>{ButtonContent}</a>
+//     </Link>
+//   ) : (
+//     ButtonContent
+//   );
+// };
+
+const Button: React.FC<ButtonProps> = ({
+  variant,
+  children,
+  onClick,
+  href,
+}) => {
+  const ButtonContent = (
+    <ButtonStyles
+      variant={variant}
+      onClick={
+        onClick
+          ? onClick
+          : href
+          ? () => (window.location.href = href)
+          : undefined
+      }
+    >
+      {children}
+    </ButtonStyles>
+  );
+
+  return ButtonContent;
+};
 
 export default Button;

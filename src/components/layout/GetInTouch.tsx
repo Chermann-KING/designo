@@ -1,15 +1,7 @@
 import styled from "styled-components";
 import Button from "../shared/Button";
-import { useEffect, useState } from "react";
 
 const GetInTouch = () => {
-  const [showButton, setShowButton] = useState(false);
-
-  useEffect(() => {
-    // Imagine fetching some data here...
-    setShowButton(true); // After initial hydration
-  }, []);
-
   return (
     <SectionStyled>
       <ContentStyled>
@@ -19,11 +11,9 @@ const GetInTouch = () => {
           our expertise can help your business grow.
         </p>
       </ContentStyled>
-      {showButton && (
-        <Button href="/contact" variant="primary">
-          Get In Touch
-        </Button>
-      )}
+      <Button href="/contact" variant="primary">
+        Get In Touch
+      </Button>
     </SectionStyled>
   );
 };
