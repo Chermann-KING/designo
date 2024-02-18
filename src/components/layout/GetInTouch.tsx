@@ -1,6 +1,15 @@
 import styled from "styled-components";
+import Button from "../shared/Button";
+import { useEffect, useState } from "react";
 
 const GetInTouch = () => {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    // Imagine fetching some data here...
+    setShowButton(true); // After initial hydration
+  }, []);
+
   return (
     <SectionStyled>
       <ContentStyled>
@@ -10,7 +19,11 @@ const GetInTouch = () => {
           our expertise can help your business grow.
         </p>
       </ContentStyled>
-      <button>Get In Touch</button>
+      {showButton && (
+        <Button href="/contact" variant="primary">
+          Get In Touch
+        </Button>
+      )}
     </SectionStyled>
   );
 };
@@ -30,23 +43,6 @@ const SectionStyled = styled.section`
 
   padding: 0 94px;
   border-radius: 15px;
-
-  button {
-    cursor: pointer;
-    border: none;
-    min-width: 152px;
-    padding: 20px;
-    background-color: #fff;
-    color: #333136;
-    text-transform: uppercase;
-    font-weight: 600;
-    border-radius: 8px;
-
-    &:hover {
-      color: #fff;
-      background-color: #ffad9b;
-    }
-  }
 
   // Styles pour les tablettes
   @media (max-width: 768px) {
