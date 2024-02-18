@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 import styled from "styled-components";
 
@@ -19,7 +20,8 @@ const FeatureCard = ({
   return (
     <CardContainer>
       <ImageWrapper gradientAngle={gradientAngle}>
-        <img src={imgUrl} alt={altText} />
+        {/* <img src={imgUrl} alt={altText} /> */}
+        <Image src={imgUrl} alt={altText} width={202} height={202} />
       </ImageWrapper>
       <div className="text">
         <Title>{title}</Title>
@@ -83,10 +85,10 @@ const ImageWrapper = styled.div<{ gradientAngle: number }>`
     rgba(250, 247, 247, 0) 100%
   )`};
 
-  img {
+  /* img {
     width: 202px;
     height: auto;
-  }
+  } */
 `;
 
 const Title = styled.h3`
