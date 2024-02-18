@@ -1,8 +1,14 @@
+"use client";
+
 import React from "react";
 import styled from "styled-components";
 import ServiceCard from "./ServiceCard";
 
+import { useRouter } from "next/navigation";
+
 export default function Services() {
+  const router = useRouter();
+
   return (
     <SectionStyled className="services">
       {/* card */}
@@ -15,9 +21,7 @@ export default function Services() {
         imageHeight={640}
         imageAlt="photo de d'ordinateur avec une main tappant dessus"
         className={"one"}
-        onClick={function (): void {
-          throw new Error("Function not implemented.");
-        }}
+        onClick={() => router.push("/web-design", { scroll: false })}
       />
       {/* card */}
       <ServiceCard
@@ -29,9 +33,7 @@ export default function Services() {
         imageHeight={640}
         imageAlt="photo d'une main tenant un téléphone"
         className={"two"}
-        onClick={function (): void {
-          throw new Error("Function not implemented.");
-        }}
+        onClick={() => router.push("/app-design", { scroll: false })}
       />
       {/* card */}
       <ServiceCard
@@ -43,9 +45,7 @@ export default function Services() {
         imageHeight={640}
         imageAlt="photo d'art abstrait"
         className={"three"}
-        onClick={function (): void {
-          throw new Error("Function not implemented.");
-        }}
+        onClick={() => router.push("/graphic-design", { scroll: false })}
       />
     </SectionStyled>
   );

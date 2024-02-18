@@ -21,7 +21,7 @@ const Hero = () => {
           Find out more about our services.
         </p>
         {showButton && (
-          <Button href="#" variant="primary">
+          <Button href="/web-design" variant="primary">
             Learn more
           </Button>
         )}
