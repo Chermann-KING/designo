@@ -31,7 +31,7 @@ const buttonStyles = css<ButtonProps>`
   min-width: 152px;
   padding: 20px;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
   border-radius: 8px;
   transition: background-color 0.3s, color 0.3s;
   display: inline-block;

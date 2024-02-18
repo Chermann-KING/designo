@@ -1,29 +1,43 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import Button from "../shared/Button";
 
-const Hero = () => (
-  <SectionStyle className="container">
-    <div className="infos-text">
-      <h1>Award-winning custom designs and digital branding solutions</h1>
-      <p>
-        With over 10 years in the industry, we are experienced in creating fully
-        responsive websites, app design, and engaging brand experiences. Find
-        out more about our services.
-      </p>
-      <button>Learn more</button>
-    </div>
-    <div className="image">
-      <Image
-        src={"/images/home/desktop/image-hero-phone.png"}
-        alt="photo téléphone"
-        width={624}
-        height={913}
-        priority={true}
-      />
-    </div>
-  </SectionStyle>
-);
+const Hero = () => {
+  const [showButton, setShowButton] = useState(false);
+
+  useEffect(() => {
+    // Imagine fetching some data here...
+    setShowButton(true); // After initial hydration
+  }, []);
+
+  return (
+    <SectionStyle>
+      <div className="infos-text">
+        <h1>Award-winning custom designs and digital branding solutions</h1>
+        <p>
+          With over 10 years in the industry, we are experienced in creating
+          fully responsive websites, app design, and engaging brand experiences.
+          Find out more about our services.
+        </p>
+        {showButton && (
+          <Button href="#" variant="primary">
+            Learn more
+          </Button>
+        )}
+      </div>
+      <div className="image">
+        <Image
+          src={"/images/home/desktop/image-hero-phone.png"}
+          alt="photo téléphone"
+          width={624}
+          height={913}
+          priority={true}
+        />
+      </div>
+    </SectionStyle>
+  );
+};
 
 const SectionStyle = styled.section`
   z-index: 0;
@@ -59,23 +73,6 @@ const SectionStyle = styled.section`
     }
     p {
       max-width: 445px;
-    }
-
-    button {
-      cursor: pointer;
-      border: none;
-      width: 152px;
-      padding: 20px;
-      background-color: #fff;
-      color: #333136;
-      text-transform: uppercase;
-      font-weight: 600;
-      border-radius: 8px;
-
-      &:hover {
-        color: #fff;
-        background-color: #ffad9b;
-      }
     }
   }
   .image {
