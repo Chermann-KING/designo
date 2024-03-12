@@ -1,7 +1,9 @@
 import Image from "next/image";
+import Link from "next/link";
 import styled from "styled-components";
 
 interface ArticleProps {
+  id: string;
   title: string;
   description: string;
   imageSrc: string;
@@ -9,6 +11,7 @@ interface ArticleProps {
 }
 
 const Article: React.FC<ArticleProps> = ({
+  id,
   title,
   description,
   imageSrc,
@@ -19,16 +22,18 @@ const Article: React.FC<ArticleProps> = ({
       <div className="article-image">
         <Image src={imageSrc} alt={imageAlt} width={350} height={320} />
       </div>
-      <div className="article-content">
-        <h2>{title}</h2>
-        <p>{description}</p>
-      </div>
+      <Link href={`/article/${id}`}>
+        <div className="article-content">
+          <h2>{title}</h2>
+          <p>{description}</p>
+        </div>
+      </Link>
     </ArticleStyled>
   );
 };
 
 const ArticleStyled = styled.article`
-  background-color: #fdf3f0;
+  /* background-color: #fdf3f0; */
   width: 350px;
   height: 478px;
   border-radius: 15px;
@@ -39,13 +44,17 @@ const ArticleStyled = styled.article`
     width: 100%;
     height: 320px;
     /* img {
-        width: 100%;
-        height: 100%;
-      } */
+          width: 100%;
+          height: 100%;
+        } */
   }
   .article-content {
+    cursor: pointer;
+    background-color: #fdf3f0;
+    transition: background-color 0.3s ease;
     margin: 0 auto;
-    width: 286px;
+    padding: 0 44px;
+    width: 100%;
     height: calc(478px - 320px);
 
     display: flex;
@@ -60,6 +69,14 @@ const ArticleStyled = styled.article`
       font-size: 1.25rem;
       font-weight: 500;
       letter-spacing: 5px;
+    }
+
+    &:hover {
+      background-color: #e7816b;
+      h2,
+      p {
+        color: #ffffff;
+      }
     }
   }
 `;

@@ -62,6 +62,7 @@ export default function WebDesign() {
           {articles.map((article, index) => (
             <Article
               key={index}
+              id={index.toString()} //TODO revoir comment gérer l'ID
               imageAlt={article.imageAlt}
               imageSrc={article.imageSrc}
               title={article.title}
@@ -104,9 +105,6 @@ const ArticlesStyled = styled.section`
   }
 
   @media (min-width: 769px) {
-    grid-template-columns: repeat(
-      3,
-      1fr
-    );
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
