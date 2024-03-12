@@ -1,3 +1,4 @@
+import GetInTouch from "@/components/layout/GetInTouch";
 import ServicesHead from "@/components/layout/ServicesHead";
 import Article from "@/components/shared/Article";
 import Footer from "@/components/shared/Footer";
@@ -70,6 +71,7 @@ export default function WebDesign() {
             />
           ))}
         </ArticlesStyled>
+        <GetInTouch />
       </MainStyled>
       <Footer />
     </>
