@@ -59,12 +59,15 @@ export default function WebDesign() {
         <ServicesHead />
 
         <ArticlesStyled>
-          <Article
-            imageAlt="Photo article Express"
-            imageSrc="/images/web-design/desktop/image-express.jpg"
-            title="EXPRESS"
-            description="A multi-carrier shipping website for ecommerce businesses"
-          />
+          {articles.map((article, index) => (
+            <Article
+              key={index}
+              imageAlt={article.imageAlt}
+              imageSrc={article.imageSrc}
+              title={article.title}
+              description={article.description}
+            />
+          ))}
         </ArticlesStyled>
       </MainStyled>
       <Footer />
@@ -90,38 +93,20 @@ const MainStyled = styled.main`
     row-gap: 120px;
   }
 `;
-const ArticlesStyled = styled.article`
-  .article {
-    background-color: #fdf3f0;
-    width: 350px;
-    height: 478px;
-    border-radius: 15px;
-    overflow: hidden;
+const ArticlesStyled = styled.section`
+  /*  */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
 
-    .article-image {
-      background-color: #e4e00a;
-      width: 100%;
-      height: 320px;
-      /* img {
-        width: 100%;
-        height: 100%;
-      } */
-    }
-    .article-content {
-      margin: 0 auto;
-      width: 286px;
-      height: calc(478px - 320px);
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      text-align: center;
-
-      h2 {
-        color: #e7816b;
-      }
-    }
+  @media (min-width: 769px) {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    );
   }
 `;

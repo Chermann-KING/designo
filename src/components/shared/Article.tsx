@@ -57,6 +57,9 @@ const ArticleStyled = styled.article`
 
     h2 {
       color: #e7816b;
+      font-size: 1.25rem;
+      font-weight: 500;
+      letter-spacing: 5px;
     }
   }
 `;
